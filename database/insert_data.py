@@ -54,6 +54,13 @@ def insert_fake_employees(num_employees=1000):
         VALUES (?, ?, ?);
     ''', leaves)
     
+    performance=[1,4.5]
+    
+    cur.executemany('''
+        INSERT OR IGNORE INTO performance (employee_id, rating)
+        VALUES (?, ?);
+    ''', performance)
+    
     
     conn.commit()
 
